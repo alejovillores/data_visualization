@@ -11,6 +11,10 @@ export default class Node {
         this.nextNode = node;
     }
 
+    setData(data){
+        this.data = data;
+    }
+
     getNextNode(){
         return this.nextNode;
     }
@@ -22,4 +26,6 @@ export default class Node {
     deleteNextNode(){
         this.nextNode = null;
     }
+
+
 }

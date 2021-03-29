@@ -13,10 +13,8 @@ export default class List {
 
 	getNode(index) {
 		const auxNode = this.firstNode;
-
-		while (i === this.size) {
+		for (var i = 0; i <= index; i++) {
 			auxNode = auxNode.getNextNode();
-			i = i + 1;
 		}
 		return auxNode;
 	}
@@ -48,14 +46,10 @@ export default class List {
 
 	addNodeByIndex(index, data) {
 		if (!this.emptyList && index < this.size) {
-			const auxNode = this.firstNode;
+			const auxNode = this.getNode(index - 1);
 			const newNode = new Node(data);
-			const i = 0;
 
-			while (i < index) {
-				auxNode = auxNode.getNextNode();
-				i = i + 1;
-			}
+			newNode.setNextNode(auxNode.getNextNode);
 			auxNode.setNextNode(newNode);
 			this.size = this.size + 1;
 		}
@@ -74,6 +68,22 @@ export default class List {
 	getDataByPosition(index) {
 		if (!this.emptyList && index < this.size) {
 			return this.getNode(index).getData();
+		}
+	}
+
+	changeNodesByPositions(firstIndex, secondIndex) {
+		if (!this.emptyList && firstIndex > this.size && secondIndex > this.size) {
+			const minIndex = Math.min(firstIndex, seconIndex);
+			const minIndexNode = this.getNode(minIndex);
+			const secondNode = minIndexNode;
+			const minIndexData = minIndexNode.getData();
+
+			// Avance
+			for (var i = 0; i < secondIndex - firstIndex; i++) {
+				secondNode = secondNode.getNextNode();
+			}
+			minIndexNode.setData(secondNode.getData());
+			secondNode.setData(minIndexData);
 		}
 	}
 }
