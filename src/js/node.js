@@ -27,5 +27,4 @@ export default class Node {
         this.nextNode = null;
     }
 
-
 }

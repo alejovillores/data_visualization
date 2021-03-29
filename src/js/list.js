@@ -78,7 +78,6 @@ export default class List {
 			const secondNode = minIndexNode;
 			const minIndexData = minIndexNode.getData();
 
-			// Avance
 			for (var i = 0; i < secondIndex - firstIndex; i++) {
 				secondNode = secondNode.getNextNode();
 			}
