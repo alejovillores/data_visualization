@@ -19,8 +19,7 @@ export default class Node {
         return this.data;
     }
 
-    hasNextNode(){
-        return (this.nextNode != null);
+    deleteNextNode(){
+        this.nextNode = null;
     }
-
 }
