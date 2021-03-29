@@ -24,15 +24,14 @@ export default class Queu {
 			this.lastNode = newNode;
 		}
 
-        this.size ++;
+		this.size++;
 	}
 
-    pushNode(){
-        const rootNode = this.firstNode
-        this.firstNode = this.firstNode.getNextNode();
-        this.size --;
+	pushNode() {
+		const rootNode = this.firstNode;
+		this.firstNode = this.firstNode.getNextNode();
+		this.size--;
 
-        return rootNode;
-    }
-
+		return rootNode;
+	}
 }

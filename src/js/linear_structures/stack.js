@@ -28,14 +28,14 @@ export default class Stack {
 	}
 
 	pushNode() {
-        const newLastNode = this.firstNode;
-        const currentLastNode = this.lastNode;
+		const newLastNode = this.firstNode;
+		const currentLastNode = this.lastNode;
 
-        for(var i = 0; i <this.size; i++){
-            newLastNode = newLastNode.getNextNode();
-        }
-        this.lastNode = newLastNode;
-        this.size --;
-        return currentLastNode;
+		for (var i = 0; i < this.size; i++) {
+			newLastNode = newLastNode.getNextNode();
+		}
+		this.lastNode = newLastNode;
+		this.size--;
+		return currentLastNode;
 	}
 }
