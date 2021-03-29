@@ -6,8 +6,13 @@ export default class Node {
         this.nextNode = null;
     }
 
+    //Methods
     setNextNode(node){
         this.nextNode = node;
+    }
+
+    getNextNode(){
+        return this.nextNode;
     }
 
     getData(){
