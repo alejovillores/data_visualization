@@ -35,6 +35,7 @@ export default class Stack {
             newLastNode = newLastNode.getNextNode();
         }
         this.lastNode = newLastNode;
+        this.size --;
         return currentLastNode;
 	}
 }
