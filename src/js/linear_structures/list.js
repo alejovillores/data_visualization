@@ -1,4 +1,4 @@
-import Node from './node.js';
+import Node from './linear_structures/node.js';
 
 export default class List {
 	constructor() {
