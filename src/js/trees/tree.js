@@ -50,4 +50,49 @@ export default class Tree {
 			}
 		}
 	}
+
+	printInOrder(root) {
+		if (root == null) {
+			return;
+		} else {
+			this.printInOrder(root.getLeftNextNode());
+
+			console.log(root.getData());
+
+			this.printInOrder(root.getRigthNextNode());
+		}
+	}
+
+	printPostOrder(root) {
+		if (root === null) {
+			return;
+		} else {
+			this.printPostOrder(root.getLeftNextNode());
+			this.printPostOrder(root.getRigthNextNode());
+			console.log(root.getData());
+		}
+	}
+
+	printPreOrder(root) {
+		if (root == null) {
+			return;
+		} else {
+			console.log(root.getData());
+			this.printPreOrder(root.getLeftNextNode());
+			this.printPreOrder(root.getRigthNextNode());
+		}
+	}
+
+	// "public methods"
+	printInOrder(){
+		return this.printInOrder(this.root);
+	}
+
+	printPostOrder(){
+		return this.printPostOrder(this.root);
+	}
+
+	printPreOrder(){
+		return this.printPreOrder(this.root);
+	}
 }
