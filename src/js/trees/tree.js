@@ -34,7 +34,6 @@ export default class Tree {
 		if (leftNode === null) {
 			root.setRigthNextNode(newNode);
 			newNode.setPredecesor(root);
-
 		} else {
 			if (newNode.getData() >= leftNode.getData()) {
 				this.addBiggerNode(leftNode, newNode);
@@ -58,27 +57,43 @@ export default class Tree {
 		}
 	}
 
-	deleteSeedNode(nodeToDelete){
+	findNodeByValue(value){
+		if (!this.isEmpty()) {
+			return this.findNodeByValue(value,this.root);
+		}
+	}
+	
+	findNodeByValue(value, node) {
+		if (value == node.getData()) {
+			return node;
+		} else {
+			if (value > node.getData()) {
+				this.findNodeByValue(value, node.getLeftNextNode);
+			} else {
+				this.findNodeByValue(value, node.getRigthNextNode());
+			}
+		}
+	}
+
+	deleteSeedNode(nodeToDelete) {
 		const predecesor = nodeToDelete.getPredecesor();
 
 		if (node.getData > predecesor.getData()) {
 			predecesor.setLeftNextNode(null);
-		}
-		else{
+		} else {
 			predecesor.setRigthNextNode(null);
 		}
 	}
-	
-	deleteOneChildNode(nodeToDelete){
-		const predecesor = nodeToDelete.getPredecesor();
-		
-		
 
+	deleteOneChildNode(nodeToDelete) {
+		const predecesor = nodeToDelete.getPredecesor();
 	}
 
-	deleteNode(value){
+	deleteTwoChildrenNode(nodeToDelete) {}
+
+	deleteNode(value) {
 		const nodeToDelete = this.findNodeByValue(value);
-		switch (nodeToDelete.numberOfChildren()){
+		switch (nodeToDelete.numberOfChildren()) {
 			case 0:
 				this.deleteSeedNode(nodeToDelete);
 				break;
@@ -89,7 +104,6 @@ export default class Tree {
 				this.deleteTwoChildrenNode(nodeToDelete);
 				break;
 		}
-
 	}
 
 	printInOrder(root) {
@@ -124,17 +138,16 @@ export default class Tree {
 		}
 	}
 
-
 	// "public methods"
-	printInOrder(){
+	printInOrder() {
 		return this.printInOrder(this.root);
 	}
 
-	printPostOrder(){
+	printPostOrder() {
 		return this.printPostOrder(this.root);
 	}
 
-	printPreOrder(){
+	printPreOrder() {
 		return this.printPreOrder(this.root);
 	}
 }
