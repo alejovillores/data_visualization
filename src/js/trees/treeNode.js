@@ -2,6 +2,7 @@ export default class TreeNode{
 
     constructor(data){
         this.data = data;
+        this.predecesor = null;
         this.leftChild = null;
         this.rigthChild = null;
     }
@@ -12,6 +13,10 @@ export default class TreeNode{
 
     setRigthNextNode(node){
         this.rigthChild = node;
+    }
+    
+    setPredecesor(node){
+        this.predecesor = node;
     }
 
     getLeftNextNode(){

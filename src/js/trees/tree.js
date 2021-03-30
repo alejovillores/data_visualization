@@ -1,5 +1,9 @@
 import { TreeNode } from './treeNode';
 
+const CERO = 0;
+const ONE_CHILD = 1;
+const TWO_CHILDREN = 2;
+
 export default class Tree {
 	constructor() {
 		this.root = null;
@@ -29,6 +33,8 @@ export default class Tree {
 
 		if (leftNode === null) {
 			root.setLeftNextNode(newNode);
+			newNode.setPredecesor(root);
+
 		} else {
 			if (newNode.getData() >= leftNode.getData()) {
 				this.addBiggerNode(leftNode, newNode);
@@ -42,6 +48,7 @@ export default class Tree {
 		const newNode = new TreeNode(vale);
 		if (this.isEmpty) {
 			this.root = newNode;
+			newNode.setPredecesor(this.root);
 		} else {
 			if (value >= this.root.getData()) {
 				this.addBiggerNode(this.root, newNode);
@@ -49,6 +56,22 @@ export default class Tree {
 				this.addSmallerNode(this.root, newNode);
 			}
 		}
+	}
+
+	deleteNode(value){
+		const nodeToDelete = this.findNodeByValue(value);
+		switch (nodeToDelete.numberOfChildren()){
+			case 0:
+				this.deleteSeedNode(nodeToDelete);
+				break;
+			case ONE_CHILD:
+				this.deleteOneChildNode(nodeToDelete);
+				break;
+			case TWO_CHILDREN:
+				this.deleteTwoChildrenNode(nodeToDelete);
+				break;
+		}
+
 	}
 
 	printInOrder(root) {
@@ -82,6 +105,7 @@ export default class Tree {
 			this.printPreOrder(root.getRigthNextNode());
 		}
 	}
+
 
 	// "public methods"
 	printInOrder(){
