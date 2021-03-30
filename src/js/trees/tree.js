@@ -32,7 +32,7 @@ export default class Tree {
 		const leftNode = root.getLeftNextNode();
 
 		if (leftNode === null) {
-			root.setLeftNextNode(newNode);
+			root.setRigthNextNode(newNode);
 			newNode.setPredecesor(root);
 
 		} else {
@@ -56,6 +56,24 @@ export default class Tree {
 				this.addSmallerNode(this.root, newNode);
 			}
 		}
+	}
+
+	deleteSeedNode(nodeToDelete){
+		const predecesor = nodeToDelete.getPredecesor();
+
+		if (node.getData > predecesor.getData()) {
+			predecesor.setLeftNextNode(null);
+		}
+		else{
+			predecesor.setRigthNextNode(null);
+		}
+	}
+	
+	deleteOneChildNode(nodeToDelete){
+		const predecesor = nodeToDelete.getPredecesor();
+		
+		
+
 	}
 
 	deleteNode(value){

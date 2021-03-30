@@ -19,6 +19,10 @@ export default class TreeNode{
         this.predecesor = node;
     }
 
+    getPredecesor(){
+        return this.predecesor;
+    }
+
     getLeftNextNode(){
         return this.leftChild;
     }
